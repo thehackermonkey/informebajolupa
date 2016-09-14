@@ -7,69 +7,149 @@ html
             h1 Afirmaciones durante el informe de gobierno de Guadalajara
 
         .container
+            ul
+                li <i class="fa fa-circle" aria-hidden="true"></i> En revisión
+                li <i class="fa fa-circle verdadero" aria-hidden="true"></i> Cierto
+                li <i class="fa fa-circle falso" aria-hidden="true"></i> Falso
+                li <i class="fa fa-circle engañoso" aria-hidden="true"></i> Problemas para comprobar o verdad parcial
 
-            #infraestructura
-
-                h2 <i class="fa fa-road" aria-hidden="true"></i> Infraestructura
-                for row in data
-                    if (row.Eje === "infraestructura")
-                        .statement(class=row.Eje)
-                            i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
-                            h3.noselect(onclick="toggleinfo(this)") #{row.Statement}
-                            .fullinfo
-                                .third
-                                    h4 Fuente: #{row.Origen}
-                                    h4 Status: #{row.Status}
-                                .two-thirds
-                                    h4 Análisis
-                                    p #{row.Analisis}
-                            .cf
-
-            #seguridad
-
-                h2 <i class="fa fa-lock" aria-hidden="true"></i> Seguridad
-                for row in data
-                    if (row.Eje === "seguridad")
-                        .statement(class=row.Eje)
-                            i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
-                            h3.noselect(onclick="toggleinfo(this)") #{row.Statement}
-                            .fullinfo
-                                .third
-                                    h4 Fuente: #{row.Origen}
-                                    h4 Status: #{row.Status}
-                                .two-thirds
-                                    h4 Análisis
-                                    p #{row.Analisis}
-                            .cf
+            //- #infraestructura
+            //-
+            //-     h2 <i class="fa fa-road" aria-hidden="true"></i> Infraestructura
+            //-     for row in data
+            //-         if (row.Mesa === "infraestructura")
+            //-             .statement(class=row.Mesa)
+            //-                 i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+            //-                 h3.noselect(onclick="toggleinfo(this)") #{row.Enunciados}
+            //-                 .fullinfo
+            //-                     .third
+            //-                         h4 Fuente: #{row.Fuente}
+            //-                         h4 Status: #{row.Status}
+            //-                     .two-thirds
+            //-                         h4 Análisis
+            //-                         p #{row.Analisis}
+            //-                 .cf
+            //-
+            //- #seguridad
+            //-
+            //-     h2 <i class="fa fa-lock" aria-hidden="true"></i> Seguridad
+            //-     for row in data
+            //-         if (row.Mesa === "seguridad")
+            //-             .statement(class=row.Mesa)
+            //-                 i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+            //-                 h3.noselect(onclick="toggleinfo(this)") #{row.Enunciados}
+            //-                 .fullinfo
+            //-                     .third
+            //-                         h4 Fuente: #{row.Fuente}
+            //-                         h4 Status: #{row.Status}
+            //-                     .two-thirds
+            //-                         h4 Análisis
+            //-                         p #{row.Analisis}
+            //-                 .cf
 
 
             #participacion
+
                 h2 <i class="fa  fa-hand-paper-o " aria-hidden="true"></i>  Participacion Ciudadana
                 for row in data
-                    if (row.Eje === "participacion")
-                        .statement(class=row.Eje)
-                            i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
-                            h3.noselect(onclick="toggleinfo(this)") #{row.Statement}
+                    if (row.Mesa === "Participación Ciudadana")
+                        .statement(class=row.Mesa)
+                            .quote
+                                i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                                h3.noselect(onclick="toggleinfo(this)") #{row.Enunciados}
                             .fullinfo
                                 .third
-                                    h4 Fuente: #{row.Origen}
-                                    h4 Status: #{row.Status}
+                                    h4 Fuente: <p>#{row.Fuente}</p>
+                                    h4 Status: <p>#{row.Status}</p>
                                 .two-thirds
                                     h4 Análisis
                                     p #{row.Analisis}
                             .cf
 
             #derechoshumanos
+
                 h2 <i class="fa fa-universal-access" aria-hidden="true"></i> Derechos Humanos
                 for row in data
-                    if (row.Eje === "derechoshumanos")
-                        .statement(class=row.Eje)
-                            i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
-                            h3.noselect(onclick="toggleinfo(this)") #{row.Statement}
+                    if (row.Mesa === "Derechos Humanos")
+                        .statement(class=row.Mesa)
+                            .quote
+                                i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                                h3.noselect(onclick="toggleinfo(this)") #{row.Enunciados}
                             .fullinfo
                                 .third
-                                    h4 Fuente: #{row.Origen}
-                                    h4 Status: #{row.Status}
+                                    h4 Fuente: <p>#{row.Fuente}</p>
+                                    h4 Status: <p>#{row.Status}</p>
+                                .two-thirds
+                                    h4 Análisis
+                                    p #{row.Analisis}
+                            .cf
+
+            #ambiente
+                h2 <i class="fa fa-tree" aria-hidden="true"></i> Medio Ambiente
+                for row in data
+                    if (row.Mesa === "Medio Ambiente")
+                        .statement(class=row.Mesa)
+                            .quote
+                                i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                                h3.noselect(onclick="toggleinfo(this)") #{row.Enunciados}
+                            .fullinfo
+                                .third
+                                    h4 Fuente: <p>#{row.Fuente}</p>
+                                    h4 Status: <p>#{row.Status}</p>
+                                .two-thirds
+                                    h4 Análisis
+                                    p #{row.Analisis}
+                            .cf
+
+            #economia
+
+                h2 <i class="fa fa-money" aria-hidden="true"></i> Economía
+                for row in data
+                    if (row.Mesa === "Economía")
+                        .statement(class=row.Mesa)
+                            .quote
+                                i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                                h3.noselect(onclick="toggleinfo(this)") #{row.Enunciados}
+                            .fullinfo
+                                .third
+                                    h4 Fuente: <p>#{row.Fuente}</p>
+                                    h4 Status: <p>#{row.Status}</p>
+                                .two-thirds
+                                    h4 Análisis
+                                    p #{row.Analisis}
+                            .cf
+
+            #transparencia
+
+                h2 <i class="fa fa-eye" aria-hidden="true"></i> Transparencia
+                for row in data
+                    if (row.Mesa === "Transparencia")
+                        .statement(class=row.Mesa)
+                            .quote
+                                i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                                h3.noselect(onclick="toggleinfo(this)") #{row.Enunciados}
+                            .fullinfo
+                                .third
+                                    h4 Fuente: <p>#{row.Fuente}</p>
+                                    h4 Status: <p>#{row.Status}</p>
+                                .two-thirds
+                                    h4 Análisis
+                                    p #{row.Analisis}
+                            .cf
+
+            #otro
+
+                h2 <i class="fa fa-puzzle-piece" aria-hidden="true"></i> Otros
+                for row in data
+                    if (row.Mesa === "Otro")
+                        .statement(class=row.Mesa)
+                            .quote
+                                i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                                h3.noselect(onclick="toggleinfo(this)") #{row.Enunciados}
+                            .fullinfo
+                                .third
+                                    h4 Fuente: <p>#{row.Fuente}</p>
+                                    h4 Status: <p>#{row.Status}</p>
                                 .two-thirds
                                     h4 Análisis
                                     p #{row.Analisis}

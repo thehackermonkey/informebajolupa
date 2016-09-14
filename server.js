@@ -3,7 +3,7 @@ var app = express();
 
 ///// GOOGLE SHEET STUFF
 var tabletop = require('tabletop');
-var googleURL= "https://docs.google.com/spreadsheets/d/1iU0TQN714b_3dppZtddGwl7CLhErhEENwZ5hCutoJ8M/pubhtml";
+var googleURL= "https://docs.google.com/spreadsheets/u/1/d/19F4xqdTfV1Xse0DF0g3lLFrLFkV43agtCJNhBAu9HgM/pubhtml";
 var sheetdata, zapdata;
 
 //Get spreadsheet data
@@ -12,14 +12,15 @@ function checkGDL() {
                    callback: returnGDL,
                    simpleSheet: true } )
 };
-function checkZPN() {
-  tabletop.init( { key: googleURL,
-                   callback: returnZPN,
-                   simpleSheet: true } )
-};
+// function checkZPN() {
+//   tabletop.init( { key: googleURL,
+//                    callback: returnZPN,
+//                    simpleSheet: true } )
+// };
 
 
 function returnGDL(data, tabletop) {
+    console.log(data);
     sheetdata = data;
 }
 // function returnZPN(data, tabletop){
@@ -29,7 +30,7 @@ function returnGDL(data, tabletop) {
 //look for changes on the spreadsheet and keep looking every minute
 checkGDL();
 // checkZPN();
-setInterval(checkGDL, 120000);
+setInterval(checkGDL, 60000);
 // setInterval(checkZPN, 180000);
 ///END GOOGLE SHEET
 

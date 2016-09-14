@@ -32,6 +32,11 @@
 
 }
 .statement{
+    .quote{
+        display: inline-flex;
+        align-items: center;
+
+    }
     i{
         margin-right: $spacer;
     }
@@ -55,7 +60,12 @@
 .container h2{
     padding: $spacer 0;
 }
-#infraestructura, #participacion, #seguridad, #derechoshumanos{
+
+.container ul li{
+    display: inline-block;
+    padding: $spacer;
+}
+#infraestructura, #participacion, #seguridad, #derechoshumanos, #ambiente, #economia, #otro, #transparencia{
     border-top: 4px solid gray;
     padding: $spacer;
 }

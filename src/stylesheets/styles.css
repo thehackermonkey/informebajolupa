@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Roboto:400,500";
-/* line 5, ../../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,45 +22,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../.rvm/gems/ruby-2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -3762,55 +3762,66 @@ body img {
 }
 
 /* line 35, ../sass/styles.scss */
+.statement .quote {
+  display: inline-flex;
+  align-items: center;
+}
+/* line 40, ../sass/styles.scss */
 .statement i {
   margin-right: 25px;
 }
-/* line 38, ../sass/styles.scss */
+/* line 43, ../sass/styles.scss */
 .statement h3 {
   display: inline-block;
   color: #125E73;
   cursor: pointer;
   padding: 10px 0;
 }
-/* line 44, ../sass/styles.scss */
+/* line 49, ../sass/styles.scss */
 .statement h3:hover {
   text-decoration: underline;
   color: #187e9b;
   background: #ebeced;
 }
-/* line 49, ../sass/styles.scss */
+/* line 54, ../sass/styles.scss */
 .statement .fullinfo {
   display: none;
   margin: 10px 0;
 }
 
-/* line 55, ../sass/styles.scss */
+/* line 60, ../sass/styles.scss */
 .container h2 {
   padding: 25px 0;
 }
 
-/* line 58, ../sass/styles.scss */
-#infraestructura, #participacion, #seguridad, #derechoshumanos {
+/* line 64, ../sass/styles.scss */
+.container ul li {
+  display: inline-block;
+  padding: 25px;
+}
+
+/* line 68, ../sass/styles.scss */
+#infraestructura, #participacion, #seguridad, #derechoshumanos, #ambiente, #economia, #otro, #transparencia {
   border-top: 4px solid gray;
   padding: 25px;
 }
 
-/* line 65, ../sass/styles.scss */
+/* line 75, ../sass/styles.scss */
 .fa-circle {
   color: gray;
 }
 
-/* line 68, ../sass/styles.scss */
+/* line 78, ../sass/styles.scss */
 .verdadero {
   color: #16F216;
 }
 
-/* line 72, ../sass/styles.scss */
+/* line 82, ../sass/styles.scss */
 .falso {
   color: red;
 }
 
-/* line 76, ../sass/styles.scss */
+/* line 86, ../sass/styles.scss */
 .dificilcomprobar, .engañoso, .omisiones {
   color: #F7A128;
 }
