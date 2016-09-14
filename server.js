@@ -4,21 +4,33 @@ var app = express();
 ///// GOOGLE SHEET STUFF
 var tabletop = require('tabletop');
 var googleURL= "https://docs.google.com/spreadsheets/d/1iU0TQN714b_3dppZtddGwl7CLhErhEENwZ5hCutoJ8M/pubhtml";
-var sheetdata;
+var sheetdata, zapdata;
 
 //Get spreadsheet data
-function init() {
+function checkGDL() {
   tabletop.init( { key: googleURL,
-                   callback: showInfo,
+                   callback: returnGDL,
                    simpleSheet: true } )
 };
-function showInfo(data, tabletop) {
+function checkZPN() {
+  tabletop.init( { key: googleURL,
+                   callback: returnZPN,
+                   simpleSheet: true } )
+};
+
+
+function returnGDL(data, tabletop) {
     sheetdata = data;
 }
+// function returnZPN(data, tabletop){
+//     zapdata = data;
+// }
 
 //look for changes on the spreadsheet and keep looking every minute
-init();
-setInterval(init, 60000);
+checkGDL();
+// checkZPN();
+setInterval(checkGDL, 120000);
+// setInterval(checkZPN, 180000);
 ///END GOOGLE SHEET
 
 
