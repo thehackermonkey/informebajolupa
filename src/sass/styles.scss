@@ -1,0 +1,78 @@
+@import "compass/reset";
+// @import "../bower_components/normalize-scss/normalize";
+@import "scss/font-awesome";
+@import "../bower_components/jeet/scss/jeet/jeet";
+@import "base";
+// @include edit();
+
+
+// splash
+.logo{
+    max-width: 350px;
+}
+.select{
+    font-size: 1.3em;
+}
+
+//main-info
+
+.header{
+    width: 100%;
+    background: $black;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    .header-logo{
+        height: 100px;
+        display: inline-flex;
+    }
+    h1{
+        padding-left: $spacer;
+    }
+
+}
+.statement{
+    i{
+        margin-right: $spacer;
+    }
+    h3{
+        display: inline-block;
+        color: $ocean;
+        cursor: pointer;
+        padding: $space 0;
+    }
+    h3:hover{
+        text-decoration: underline;
+        color: lighten($ocean, 9%);
+        background: lighten($light-gray, 2%);
+    }
+    .fullinfo{
+        display: none;
+        margin: $space 0;
+    }
+}
+
+.container h2{
+    padding: $spacer 0;
+}
+#infraestructura, #participacion, #seguridad, #derechoshumanos{
+    border-top: 4px solid gray;
+    padding: $spacer;
+}
+
+
+
+.fa-circle{
+    color: gray;
+}
+.verdadero{
+    color: $green;
+}
+
+.falso{
+    color: red;
+}
+
+.dificilcomprobar, .engañoso, .omisiones{
+    color: $orange;
+}

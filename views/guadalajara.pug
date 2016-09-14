@@ -1,0 +1,91 @@
+html
+    include includes/head
+    body
+        .header
+            img(class="header-logo" src="../src/img/logo.png")
+            h1 Afirmaciones durante el informe de gobierno de Guadalajara
+
+        .container
+            ul
+                li Infraestructura
+                li Seguridad
+                li Participación Ciudadana
+
+
+            #infraestructura
+
+                h2 <i class="fa fa-road" aria-hidden="true"></i> Infraestructura
+                for row in data
+                    if (row.Eje === "infraestructura")
+                        .statement(class=row.Eje)
+                            i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                            h3.noselect(onclick="toggleinfo(this)") #{row.Statement}
+                            .fullinfo
+                                .third
+                                    h4 Fuente: #{row.Origen}
+                                    h4 Status: #{row.Status}
+                                .two-thirds
+                                    h4 Análisis
+                                    p #{row.Analisis}
+                            .cf
+
+            #seguridad
+
+                h2 <i class="fa fa-lock" aria-hidden="true"></i> Seguridad
+                for row in data
+                    if (row.Eje === "seguridad")
+                        .statement(class=row.Eje)
+                            i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                            h3.noselect(onclick="toggleinfo(this)") #{row.Statement}
+                            .fullinfo
+                                .third
+                                    h4 Fuente: #{row.Origen}
+                                    h4 Status: #{row.Status}
+                                .two-thirds
+                                    h4 Análisis
+                                    p #{row.Analisis}
+                            .cf
+
+
+            #participacion
+                h2 <i class="fa  fa-hand-paper-o " aria-hidden="true"></i>  Participacion Ciudadana
+                for row in data
+                    if (row.Eje === "participacion")
+                        .statement(class=row.Eje)
+                            i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                            h3.noselect(onclick="toggleinfo(this)") #{row.Statement}
+                            .fullinfo
+                                .third
+                                    h4 Fuente: #{row.Origen}
+                                    h4 Status: #{row.Status}
+                                .two-thirds
+                                    h4 Análisis
+                                    p #{row.Analisis}
+                            .cf
+
+            #derechoshumanos
+                h2 <i class="fa fa-universal-access" aria-hidden="true"></i> Derechos Humanos
+                for row in data
+                    if (row.Eje === "derechoshumanos")
+                        .statement(class=row.Eje)
+                            i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                            h3.noselect(onclick="toggleinfo(this)") #{row.Statement}
+                            .fullinfo
+                                .third
+                                    h4 Fuente: #{row.Origen}
+                                    h4 Status: #{row.Status}
+                                .two-thirds
+                                    h4 Análisis
+                                    p #{row.Analisis}
+                            .cf
+
+
+
+
+
+
+        script(src="src/bower_components/jquery/dist/jquery.min.js")
+        script.
+            function toggleinfo(element){
+                $(element).siblings(".fullinfo").toggle();
+            }
