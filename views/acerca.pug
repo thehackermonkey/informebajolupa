@@ -1,0 +1,30 @@
+html
+    include includes/head
+    body
+        .menu.white
+            ul
+                li: a(href='/') Inicio
+        .header
+            a(href="/")
+                img(class="header-logo" src="../src/img/logo.png")
+            h1 Acerca del proyecto
+
+        .container
+
+            p.acerca Bajo la Lupa es un ejercicio ciudadano abierto para verificar la información hablada en los informes de gobierno expedidos por los alcaldes de Guadalajara y Zapopan.
+                br
+                |El ejercicio consiste en verificar la veracidad de los datos, acciones y logros que señalen los alcaldes en sus informes para poder evaluarlos. Se formaron equipos temáticos en los siguientes rubros: derechos humanos, seguridad, economía, medio ambiente, transparencia y participación ciudadana. Cada equipo se dividirá por ejes, Derechos Humanos, Economía, Medio Ambiente, Participación Ciudadana y Transparencia y contará con la participación, por lo menos, de una persona investigadora, una organización de la sociedad civil y una persona experta en el tema. Las mesas son abiertas y se podrán sumar las personas que lo deseen.
+                br
+                | Cada equipo elegirá, de acuerdo con el tema que le corresponda, las declaraciones o los datos que someterá a investigación y escrutinio. En primer lugar, se verificará la fuente mencionada por el alcalde (si es que se menciona) y posteriormente se procederá a verificar otras fuentes y se hará la comparación. Una vez que se realice la investigación, se colocarán las declaraciones en alguna de las siguientes categorías: verdadero, dificil de comprobar, engañoso, falso u omisiones.
+
+                .fb-comments(width="100%" data-href="https://informebajolupa.herokuapp.com/" data-numposts="5")
+
+        .fb-root
+        script.
+            (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1721172798127310";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));

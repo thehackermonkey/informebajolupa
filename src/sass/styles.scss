@@ -3,8 +3,26 @@
 @import "scss/font-awesome";
 @import "../bower_components/jeet/scss/jeet/jeet";
 @import "base";
-// @include edit();
 
+
+//menu
+.menu{
+    position: absolute;
+    top: $spacer;
+    right: $spacer*2;
+    ul li{
+        display: inline-block;
+        font-size: 1.2em;
+    }
+}
+.white{
+    top: $spacer*1.5;
+    a{
+
+        color: white;
+    }
+
+}
 
 // splash
 .logo{
@@ -12,6 +30,28 @@
 }
 .select{
     font-size: 1.3em;
+    a{
+        margin-top: $spacer;
+        @include cf();
+        h4{
+            margin-top: $space;
+        }
+        text-decoration: none;
+        color: $ocean;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+}
+.escudo{
+    max-width: 50%;
+    text-align: center;
+    margin: auto;
+    display: block;
+    @include cf();
+    &:hover{
+        opacity: 0.5;
+    }
 }
 
 //main-info
@@ -52,8 +92,13 @@
         background: lighten($light-gray, 2%);
     }
     .fullinfo{
+        height: auto;
         display: none;
         margin: $space 0;
+        .third, .two-thirds{
+            padding: $space 0;
+            border-top: 2px solid $red;
+        }
     }
 }
 
@@ -71,7 +116,7 @@
 }
 
 
-
+//semaforo
 .fa-circle{
     color: gray;
 }
@@ -85,4 +130,9 @@
 
 .dificilcomprobar, .engañoso, .omisiones{
     color: $orange;
+}
+
+// acerca
+.acerca{
+    margin: $spacer*2 0;
 }

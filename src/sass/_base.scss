@@ -67,6 +67,22 @@ body img{
 .cf{
     @include cf();
 }
+
+
+///responsive
+
+@media screen and(max-width: 500px){
+    .third, .two-thirds{
+        @include stack();
+    }
+    .guide li{
+        @include stack();
+    }
+    .fullinfo .two-thirds{
+        border-top: none;
+    }
+
+}
 ///
 
 .noselect {
