@@ -33,22 +33,23 @@ html
             //-                         p #{row.Analisis}
             //-                 .cf
             //-
-            //- #seguridad
-            //-
-            //-     h2 <i class="fa fa-lock" aria-hidden="true"></i> Seguridad
-            //-     for row in data
-            //-         if (row.Mesa === "seguridad")
-            //-             .statement(class=row.Mesa)
-            //-                 i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
-            //-                 h3.noselect(onclick="toggleinfo(this)") #{row.Enunciados}
-            //-                 .fullinfo
-            //-                     .third
-            //-                         h4 Fuente: #{row.Fuente}
-            //-                         h4 Veredicto: #{row.Veredicto}
-            //-                     .two-thirds
-            //-                         h4 Análisis
-            //-                         p #{row.Analisis}
-            //-                 .cf
+            #seguridad
+
+                h2 <i class="fa fa-lock" aria-hidden="true"></i> Seguridad
+                for row in data
+                    if (row.Mesa === "Seguridad")
+                        .statement(class=row.Mesa)
+                            .quote(onclick="toggleinfo(this)")
+                                i(class="fa fa-circle" class=row.Veredicto aria-hidden="true")
+                                h3.noselect #{row.Enunciados}
+                            .fullinfo
+                                .third
+                                    h4 Fuente: #{row.Fuente}
+                                    h4 Veredicto: #{row.Veredicto}
+                                .two-thirds
+                                    h4 Análisis
+                                    p #{row.Analisis}
+                            .cf
 
 
             #participacion
@@ -106,7 +107,7 @@ html
 
             #economia
 
-                h2 <i class="fa fa-money" aria-hidden="true"></i> Economía
+                h2 <i class="fa fa-money" aria-hidden="true"></i> Economía y Finanzas Públicas
                 for row in data
                     if (row.Mesa === "Economía")
                         .statement(class=row.Mesa)

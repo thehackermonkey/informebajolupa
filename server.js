@@ -25,7 +25,6 @@ function returnGDL(data, tabletop) {
 }
 function returnZPN(data, tabletop){
     zapdata = data;
-    console.log(data);
 }
 
 //look for changes on the spreadsheet and keep looking every minute
@@ -59,5 +58,5 @@ app.get('/acerca', function (req, res) {
 
 
 app.listen(process.env.PORT || 5000, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('Ejecutando #informebajolupa');
 });

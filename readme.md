@@ -2,10 +2,23 @@
 
 Este es un pequeño proyecto que ayuda a visualizar los resultados del trabajo realizado para revisar los informes de gobierno de los acaldes de Guadalajara y Zapopan.
 
+##Google Spreadsheets *"the ultimate back-end"*
+
+El proyecto obtiene la información de google spreadsheets y la muestra en el front-end.
+
+
+
 ##Desarrollo
 
-1. Ha un fork del repositiorio y clonalo en tu equipo
-2. Necesitas tener nodejs instalado
-3. Desde la línea de comando corre: `npm install`
-Rcomendado: Instala [nodemon](http://nodemon.io/)
-4. Ejecuta: `node server.js` o `nodemon server.js`
+Necesitas tener instalado:
+
+* [NodeJS](https://nodejs.org/en/)
+* [GulpJS](http://gulpjs.com/)
+
+
+Para ejecutar el proyecto de manera local
+
+```
+gulp
+
+```
