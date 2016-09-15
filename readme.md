@@ -1,5 +1,5 @@
 
-<div style="text-align:center"><img src="src/img/logo" /></div>
+<div style="text-align:center"><img src="src/img/logo.png" /></div>
 
 #Informe bajo lupa
 
