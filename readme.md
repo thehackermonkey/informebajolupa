@@ -18,4 +18,6 @@ Necesitas tener instalado:
 
 Para ejecutar el proyecto de manera local ejecuta:
 
-```gulp```
+```
+gulp
+```
