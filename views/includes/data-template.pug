@@ -1,0 +1,80 @@
+.container
+    ul.guide
+        li <i class="fa fa-circle" aria-hidden="true"></i> En revisión
+        li <i class="fa fa-circle verdadero" aria-hidden="true"></i> Cierto
+        li <i class="fa fa-circle falso" aria-hidden="true"></i> Falso
+        li <i class="fa fa-circle engañoso" aria-hidden="true"></i> Problemas para comprobar o verdad parcial
+
+
+
+    mixin statement(mesa, veredicto, enunciados, fuente, analisis)
+        .statement(class=mesa)
+            .quote(onclick="toggleinfo(this)")
+                i(class="fa fa-circle" class=veredicto aria-hidden="true")
+                h3.noselect #{enunciados}
+            .fullinfo
+                .third
+                    h4 Fuente: #{fuente}
+                    h4 Veredicto: #{veredicto}
+                .two-thirds
+                    h4 Análisis
+                    p #{analisis}
+            .cf
+
+
+
+    #seguridad
+        h2 <i class="fa fa-lock" aria-hidden="true"></i> Seguridad
+        for row in data
+            if (row.Mesa === "Seguridad")
+                +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+
+    #participacion
+        h2 <i class="fa  fa-hand-paper-o " aria-hidden="true"></i>  Participacion Ciudadana
+        for row in data
+            if (row.Mesa === "Participación Ciudadana")
+                +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+    #derechoshumanos
+        h2 <i class="fa fa-universal-access" aria-hidden="true"></i> Derechos Humanos
+        for row in data
+            if (row.Mesa === "Derechos Humanos")
+                +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+    #ambiente
+        h2 <i class="fa fa-tree" aria-hidden="true"></i> Medio Ambiente
+        for row in data
+            if (row.Mesa === "Medio Ambiente")
+                +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+    #economia
+        h2 <i class="fa fa-money" aria-hidden="true"></i> Economía y Finanzas Públicas
+        for row in data
+            if (row.Mesa === "Economía")
+                +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+    #transparencia
+        h2 <i class="fa fa-eye" aria-hidden="true"></i> Transparencia
+        for row in data
+            if (row.Mesa === "Transparencia")
+                +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+    #otro
+        h2 <i class="fa fa-puzzle-piece" aria-hidden="true"></i> Otros
+        for row in data
+            if (row.Mesa === "Otro")
+                +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+
+script(src="src/bower_components/jquery/dist/jquery.min.js")
+script.
+    function toggleinfo(element){
+        $(element).siblings(".fullinfo").toggle();
+    }
