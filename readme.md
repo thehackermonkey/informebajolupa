@@ -1,3 +1,6 @@
+
+<div style="text-align:center"><img src="src/img/logo" /></div>
+
 #Informe bajo lupa
 
 Este es un pequeño proyecto que ayuda a visualizar los resultados del trabajo realizado para revisar los informes de gobierno de los acaldes de Guadalajara y Zapopan.
