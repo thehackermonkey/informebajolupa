@@ -4,7 +4,7 @@ Este es un pequeño proyecto que ayuda a visualizar los resultados del trabajo r
 
 ##Google Spreadsheets *"the ultimate back-end"*
 
-El proyecto obtiene la información de google spreadsheets y la muestra en el front-end.
+Como dato curioso el proyecto obtiene la información de google spreadsheets y la muestra en el front-end usando [tabletop](https://github.com/jsoma/tabletop)
 
 
 
@@ -16,9 +16,6 @@ Necesitas tener instalado:
 * [GulpJS](http://gulpjs.com/)
 
 
-Para ejecutar el proyecto de manera local
+Para ejecutar el proyecto de manera local ejecuta:
 
-```
-gulp
-
-```
+```gulp```
