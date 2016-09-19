@@ -7,8 +7,6 @@
         li <i class="fa fa-circle engañoso" aria-hidden="true"></i> Problemas para comprobar o verdad parcial
 
 
-
-
     mixin statement(mesa, veredicto, enunciados, fuente, analisis)
         .statement(class=mesa)
             .quote(onclick="toggleinfo(this)")
@@ -84,9 +82,18 @@
                 +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
 
 
-
-script(src="src/bower_components/jquery/dist/jquery.min.js")
 script.
+    function downloadJSAtOnload() {
+    var element = document.createElement("script");
+    element.src = "src/bower_components/jquery/dist/jquery.min.js";
+    document.body.appendChild(element);
+    }
+    if (window.addEventListener)
+        window.addEventListener("load", downloadJSAtOnload, false);
+    else if (window.attachEvent)
+        window.attachEvent("onload", downloadJSAtOnload);
+    else window.onload = downloadJSAtOnload;
+
     function toggleinfo(element){
         $(element).siblings(".fullinfo").toggle();
     }

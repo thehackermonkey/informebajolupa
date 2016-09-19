@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-
+var oneDay = 86400000;
 ///// GOOGLE SHEET STUFF
 var tabletop = require('tabletop');
 var gdlURL= "https://docs.google.com/spreadsheets/u/1/d/19F4xqdTfV1Xse0DF0g3lLFrLFkV43agtCJNhBAu9HgM/pubhtml";
@@ -36,7 +36,7 @@ setInterval(checkZPN, 180000);
 ///END GOOGLE SHEET
 
 
-app.use("/src", express.static(__dirname + '/src'));
+app.use("/src", express.static(__dirname + '/src', { maxAge: oneDay }));
 app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
