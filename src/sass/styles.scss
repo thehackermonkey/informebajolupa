@@ -135,7 +135,7 @@
     justify-content: center;
     margin-top: $spacer*3;
     a{
-        @include col(1/8);
+        @include col(1/7);
     }
     img.cladem{
         max-width: 40px;
