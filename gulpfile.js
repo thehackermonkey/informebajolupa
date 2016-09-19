@@ -1,7 +1,6 @@
-var gulp        = require('gulp'),
+var gulp  = require('gulp'),
     browserSync = require('browser-sync').create(),
     nodemon = require('gulp-nodemon'),
-    gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
     compass = require('gulp-compass');

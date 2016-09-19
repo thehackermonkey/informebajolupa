@@ -16,9 +16,11 @@ $red: #E73142;
 $ocean: #125E73;
 $blue: #23D6D9;
 $light-gray: #E6E7E8;
+
 // VEREDICTO COLORES
 $green: #16F216;
 $orange: #F7A128;
+
 //units
 $space: 10px;
 $spacer: 25px;
@@ -39,7 +41,7 @@ body{
     font-family: $main-font;
 }
 p{
-    line-height: 25px;
+    line-height: $spacer;
     font-size: 1.1em;
 }
 
@@ -81,7 +83,6 @@ body img{
     .fullinfo .two-thirds{
         border-top: none;
     }
-
 }
 ///
 

@@ -1,5 +1,4 @@
 @import "compass/reset";
-// @import "../bower_components/normalize-scss/normalize";
 @import "scss/font-awesome";
 @import "../bower_components/jeet/scss/jeet/jeet";
 @import "base";
@@ -25,10 +24,8 @@
 .white{
     top: $spacer*1.5;
     a{
-
         color: white;
     }
-
 }
 
 // splash

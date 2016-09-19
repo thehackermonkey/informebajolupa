@@ -5,7 +5,7 @@ var app = express();
 var tabletop = require('tabletop');
 var gdlURL= "https://docs.google.com/spreadsheets/u/1/d/19F4xqdTfV1Xse0DF0g3lLFrLFkV43agtCJNhBAu9HgM/pubhtml";
 var zapURL= "https://docs.google.com/spreadsheets/u/1/d/1CMTFGw3eTFDtoEaz8QAH4u9y5H3wKaUMt29K5YAoZhY/pubhtml?gid=0&single=true";
-var sheetdata, zapdata;
+var sheetdata, zapdata, jsondata;
 
 //Get spreadsheet data
 function checkGDL() {
@@ -22,6 +22,7 @@ function checkZPN() {
 
 function returnGDL(data, tabletop) {
     sheetdata = data;
+    jsondata = JSON.stringify(data, null, "\t");
 }
 function returnZPN(data, tabletop){
     zapdata = data;
@@ -54,7 +55,10 @@ app.get('/acerca', function (req, res) {
   res.render('acerca');
 });
 
-
+// app.use('/api', router);
+// app.get('/api/gdl', function (req, res) {
+//   res.render('apigdl', {data: jsondata});
+// });
 
 
 app.listen(process.env.PORT || 5000, function () {

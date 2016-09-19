@@ -1,16 +1,9 @@
 html
     include includes/head
+    include includes/mixins
     body
-        .menu.white
-            ul
-                li: a(href='/') Inicio
-        .header
-            a(href="/")
-                img(class="header-logo" src="../src/img/logo.png")
-            h1 Acerca del proyecto
-
+        +header("Acerca del proyecto")
         .container
-
             p.acerca Bajo la Lupa es un ejercicio ciudadano abierto para verificar la información hablada en los informes de gobierno expedidos por los alcaldes de Guadalajara y Zapopan.
                 br
                 |El ejercicio consiste en verificar la veracidad de los datos, acciones y logros que señalen los alcaldes en sus informes para poder evaluarlos. Se formaron equipos temáticos en los siguientes rubros: derechos humanos, seguridad, economía, medio ambiente, transparencia y participación ciudadana. Cada equipo se dividirá por ejes, Derechos Humanos, Economía, Medio Ambiente, Participación Ciudadana y Transparencia y contará con la participación, por lo menos, de una persona investigadora, una organización de la sociedad civil y una persona experta en el tema. Las mesas son abiertas y se podrán sumar las personas que lo deseen.
