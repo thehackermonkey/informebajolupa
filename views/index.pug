@@ -26,6 +26,7 @@ html
                 a(href="guadalajara")
                     img(class="escudo"  src="../src/img/guadalajara.png")
                     h4 En Guadalajara
+                    br
                     - var gdltotal = 0;
                     - var gdlfalso = 0;
                     - var gdlverdadero = 0;
@@ -41,15 +42,16 @@ html
                             - gdlverdadero +=1
                         if (row.Veredicto === "omisiones")
                             - gdlomisiones += 1
-                    p afirmaciones falsas : #{gdlfalso}
-                    p afirmaciones verdaderas: #{gdlverdadero}
-                    p engañoso o con problemas para verificar: #{gdldificil}
-                    p omisiones: #{gdlomisiones}
+                    p Afirmaciones falsas : #{gdlfalso}
+                    p Afirmaciones verdaderas: #{gdlverdadero}
+                    p Engañoso o con problemas para verificar: #{gdldificil}
+                    p Omisiones: #{gdlomisiones}
                     //CODE
             .half.select.center
                 a(href="zapopan")
                     img( class="escudo"  src="../src/img/zapopan.png")
                     h4 En Zapopan
+                    br
                     - var zpntotal = 0;
                     - var zpnfalso = 0;
                     - var zpnverdadero = 0;
@@ -65,13 +67,14 @@ html
                             - zpnverdadero += 1
                         if (row.Veredicto === "omisiones")
                             - zpnomisiones += 1
-                    p afirmaciones falsas : #{zpnfalso}
-                    p afirmaciones verdaderas: #{zpnverdadero}
-                    p engañoso o con problemas para verificar: #{zpndificil}
-                    p omisiones: #{zpnomisiones}
+                    p Afirmaciones falsas : #{zpnfalso}
+                    p Afirmaciones verdaderas: #{zpnverdadero}
+                    p Engañoso o con problemas para verificar: #{zpndificil}
+                    p Omisiones: #{zpnomisiones}
 
 
 
 
 
         include includes/footer
+        script(src="src/js/analytics.js")

@@ -3080,6 +3080,7 @@ body img {
 }
 .menu ul li {
   display: inline-block;
+  padding-left: 25px;
   font-size: 1.2em;
 }
 .menu a {
@@ -3226,6 +3227,10 @@ body img {
 }
 .footer img.cladem {
   max-width: 40px;
+}
+
+.github {
+  padding-bottom: 25px;
 }
 
 .fa-circle {

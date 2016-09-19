@@ -11,6 +11,7 @@
     right: $spacer*2;
     ul li{
         display: inline-block;
+        padding-left: $spacer;
         font-size: 1.2em;
     }
     a{
@@ -139,7 +140,10 @@
         max-width: 40px;
     }
 }
-
+//github swag
+.github{
+    padding-bottom: $spacer;
+}
 //semaforo
 .fa-circle{
     color: gray;
