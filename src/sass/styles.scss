@@ -79,14 +79,13 @@
     .quote{
         display: inline-flex;
         align-items: center;
-
     }
     i{
         margin-right: $spacer;
     }
     h3{
         display: inline-block;
-        color: $ocean;
+        color: $gray;
         cursor: pointer;
         padding: $space 0;
     }
@@ -99,6 +98,12 @@
         height: auto;
         display: none;
         margin: $space 0;
+        .third h4{
+            padding-bottom: $spacer;
+            span{
+                text-transform: capitalize;
+            }
+        }
         .third, .two-thirds{
             padding: $space 0;
             border-top: 2px solid $red;
@@ -114,11 +119,26 @@
     display: inline-block;
     padding: $spacer;
 }
-#infraestructura, #participacion, #seguridad, #derechoshumanos, #ambiente, #economia, #otro, #transparencia{
+#infraestructura, #participacion, #seguridad, #derechoshumanos, #ambiente, #economia, #otro, #transparencia, #omisiones{
     border-top: 4px solid gray;
     padding: $spacer;
+    h2{
+        color: $ocean;
+    }
 }
 
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: $spacer*3;
+    a{
+        @include col(1/8);
+    }
+    img.cladem{
+        max-width: 40px;
+    }
+}
 
 //semaforo
 .fa-circle{
@@ -134,6 +154,9 @@
 
 .dificilcomprobar, .engañoso, .omisiones{
     color: $orange;
+    .veredicto{
+        color: $orange;
+    }
 }
 
 // acerca

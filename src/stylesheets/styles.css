@@ -3013,7 +3013,7 @@ body img {
 }
 
 @media screen and (max-width: 400px) {
-  .third, .two-thirds {
+  .third, .two-thirds, .half {
     display: block;
     clear: both;
     float: none;
@@ -3021,11 +3021,15 @@ body img {
     margin-left: auto;
     margin-right: auto;
   }
-  .third:first-child, .two-thirds:first-child {
+  .third:first-child, .two-thirds:first-child, .half:first-child {
     margin-left: auto;
   }
-  .third:last-child, .two-thirds:last-child {
+  .third:last-child, .two-thirds:last-child, .half:last-child {
     margin-right: auto;
+  }
+
+  .half {
+    margin-bottom: 25px;
   }
 
   .guide li {
@@ -3162,7 +3166,7 @@ body img {
 }
 .statement h3 {
   display: inline-block;
-  color: #125E73;
+  color: #403B40;
   cursor: pointer;
   padding: 10px 0;
 }
@@ -3175,6 +3179,12 @@ body img {
   height: auto;
   display: none;
   margin: 10px 0;
+}
+.statement .fullinfo .third h4 {
+  padding-bottom: 25px;
+}
+.statement .fullinfo .third h4 span {
+  text-transform: capitalize;
 }
 .statement .fullinfo .third, .statement .fullinfo .two-thirds {
   padding: 10px 0;
@@ -3190,9 +3200,32 @@ body img {
   padding: 25px;
 }
 
-#infraestructura, #participacion, #seguridad, #derechoshumanos, #ambiente, #economia, #otro, #transparencia {
+#infraestructura, #participacion, #seguridad, #derechoshumanos, #ambiente, #economia, #otro, #transparencia, #omisiones {
   border-top: 4px solid gray;
   padding: 25px;
+}
+#infraestructura h2, #participacion h2, #seguridad h2, #derechoshumanos h2, #ambiente h2, #economia h2, #otro h2, #transparencia h2, #omisiones h2 {
+  color: #125E73;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 75px;
+}
+.footer a {
+  float: left;
+  clear: none;
+  width: 9.875%;
+  margin-left: 0;
+  margin-right: 3%;
+}
+.footer a:last-child {
+  margin-right: 0;
+}
+.footer img.cladem {
+  max-width: 40px;
 }
 
 .fa-circle {
@@ -3208,6 +3241,9 @@ body img {
 }
 
 .dificilcomprobar, .engañoso, .omisiones {
+  color: #F7A128;
+}
+.dificilcomprobar .veredicto, .engañoso .veredicto, .omisiones .veredicto {
   color: #F7A128;
 }
 

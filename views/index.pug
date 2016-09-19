@@ -2,6 +2,20 @@ doctype html
 html
     include includes/head
     body
+        // CODE
+        - var falso = 0;
+        - var verdadero = 0;
+        - var omisiones = 0;
+
+        mixin datadisplay(dataset)
+            for row in dataset
+                if (row.Veredicto === "falso")
+                    - falso = falso + 1
+                if (row.Veredicto === "verdadero")
+                    - verdadero = verdadero + 1
+                if (row.Veredicto === "omisiones")
+                    - omisiones = omisiones + 1
+
         .menu
             ul
                 li: a(href='acerca') Acerca de
@@ -12,7 +26,52 @@ html
                 a(href="guadalajara")
                     img(class="escudo"  src="../src/img/guadalajara.png")
                     h4 En Guadalajara
+                    - var gdltotal = 0;
+                    - var gdlfalso = 0;
+                    - var gdlverdadero = 0;
+                    - var gdlomisiones = 0;
+                    - var gdldificil = 0;
+                    for row in gdldata
+                        - gdltotal +=1
+                        - gdldificil = gdltotal - gdlfalso - gdlverdadero - gdlomisiones
+
+                        if (row.Veredicto === "falso")
+                            - gdlfalso += 1
+                        if (row.Veredicto === "verdadero")
+                            - gdlverdadero +=1
+                        if (row.Veredicto === "omisiones")
+                            - gdlomisiones += 1
+                    p afirmaciones falsas : #{gdlfalso}
+                    p afirmaciones verdaderas: #{gdlverdadero}
+                    p engañoso o con problemas para verificar: #{gdldificil}
+                    p omisiones: #{gdlomisiones}
+                    //CODE
             .half.select.center
                 a(href="zapopan")
                     img( class="escudo"  src="../src/img/zapopan.png")
                     h4 En Zapopan
+                    - var zpntotal = 0;
+                    - var zpnfalso = 0;
+                    - var zpnverdadero = 0;
+                    - var zpnomisiones = 0;
+                    -var zpndificil = 0;
+                    for row in zapopandata
+                        - zpntotal +=1
+                        - zpndificil = zpntotal - zpnfalso - zpnverdadero - zpnomisiones
+
+                        if (row.Veredicto === "falso")
+                            - zpnfalso += 1
+                        if (row.Veredicto === "verdadero")
+                            - zpnverdadero += 1
+                        if (row.Veredicto === "omisiones")
+                            - zpnomisiones += 1
+                    p afirmaciones falsas : #{zpnfalso}
+                    p afirmaciones verdaderas: #{zpnverdadero}
+                    p engañoso o con problemas para verificar: #{zpndificil}
+                    p omisiones: #{zpnomisiones}
+
+
+
+
+
+        include includes/footer

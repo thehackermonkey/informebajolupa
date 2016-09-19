@@ -16,6 +16,7 @@ $red: #E73142;
 $ocean: #125E73;
 $blue: #23D6D9;
 $light-gray: #E6E7E8;
+$gray: #403B40;
 
 // VEREDICTO COLORES
 $green: #16F216;
@@ -74,8 +75,12 @@ body img{
 ///responsive
 
 @media screen and(max-width: 400px){
-    .third, .two-thirds{
+
+    .third, .two-thirds, .half{
         @include stack();
+    }
+    .half{
+        margin-bottom: $spacer;
     }
     .guide li{
         @include stack();

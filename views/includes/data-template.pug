@@ -1,9 +1,11 @@
 .container
+    h2 Da click en la frase para ver un análisis detallado
     ul.guide
         li <i class="fa fa-circle" aria-hidden="true"></i> En revisión
         li <i class="fa fa-circle verdadero" aria-hidden="true"></i> Cierto
         li <i class="fa fa-circle falso" aria-hidden="true"></i> Falso
         li <i class="fa fa-circle engañoso" aria-hidden="true"></i> Problemas para comprobar o verdad parcial
+
 
 
 
@@ -15,7 +17,10 @@
             .fullinfo
                 .third
                     h4 Fuente: #{fuente}
-                    h4 Veredicto: #{veredicto}
+                    h4(class=veredicto) Veredicto:
+                        if (veredicto === "dificilcomprobar")
+                            - veredicto = "Dificil de Comprobar"
+                        |  <span>#{veredicto}</span>
                 .two-thirds
                     h4 Análisis
                     p #{analisis}
@@ -46,7 +51,7 @@
 
 
     #ambiente
-        h2 <i class="fa fa-tree" aria-hidden="true"></i> Medio Ambiente
+        h2 <i class="fa fa-tree" aria-hidden="true"></i> Medio Ambiente y Ciudad
         for row in data
             if (row.Mesa === "Medio Ambiente")
                 +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
@@ -69,6 +74,13 @@
         h2 <i class="fa fa-puzzle-piece" aria-hidden="true"></i> Otros
         for row in data
             if (row.Mesa === "Otro")
+                +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+    #omisiones
+        h2 <i class="fa fa-thumbs-down" aria-hidden="true"></i> Omisiones
+        for row in data
+            if (row.Mesa === "Omisiones")
                 +statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
 
 
