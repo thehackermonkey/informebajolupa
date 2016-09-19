@@ -3050,6 +3050,26 @@ body img {
   .fullinfo .two-thirds {
     border-top: none;
   }
+
+  .footer a {
+    float: left;
+    clear: none;
+    width: 31.33333%;
+    margin-left: 0;
+    margin-right: 3%;
+  }
+  .footer a:nth-of-type(n) {
+    margin-right: 3%;
+    float: left;
+    clear: none;
+  }
+  .footer a:nth-of-type(3n) {
+    margin-right: 0;
+    float: right;
+  }
+  .footer a:nth-of-type(3n + 1) {
+    clear: both;
+  }
 }
 .noselect {
   -webkit-touch-callout: none;
@@ -3210,6 +3230,14 @@ body img {
 }
 
 .footer {
+  width: auto;
+  max-width: 1100px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
