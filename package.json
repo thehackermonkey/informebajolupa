@@ -4,8 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --harmony ${SCRIPT:-server.js}",
+    "deploy": "gcloud app deploy app.yaml worker.yaml --version alpha-001 --promote"
   },
+
   "author": "Hans",
   "license": "ISC",
   "devDependencies": {
@@ -17,6 +19,9 @@
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "tabletop": "^1.4.3"
+  },
+  "engines": {
+    "node": ">= 4.x"
   },
   "dependencies": {
     "pug": "^2.0.0-beta6"
