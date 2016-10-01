@@ -1,30 +1,34 @@
+//express
 var express = require('express');
 var app = express();
 var oneDay = 86400000;
-///// GOOGLE SHEET STUFF
-var tabletop = require('tabletop');
-var gdlURL= "https://docs.google.com/spreadsheets/u/1/d/19F4xqdTfV1Xse0DF0g3lLFrLFkV43agtCJNhBAu9HgM/pubhtml";
-var zapURL= "https://docs.google.com/spreadsheets/u/1/d/1CMTFGw3eTFDtoEaz8QAH4u9y5H3wKaUMt29K5YAoZhY/pubhtml?gid=0&single=true";
-var sheetdata, zapdata;
+///// TABLETOP stuff
+var tabletop = require('tabletop'),
+    gdlURL= 'https://docs.google.com/spreadsheets/u/1/d/19F4xqdTfV1Xse0DF0g3lLFrLFkV43agtCJNhBAu9HgM/pubhtml',
+    zapURL= 'https://docs.google.com/spreadsheets/u/1/d/1CMTFGw3eTFDtoEaz8QAH4u9y5H3wKaUMt29K5YAoZhY/pubhtml?gid=0&single=true';
+var gdldata, zapdata;
 
-//Get spreadsheet data
+//Get Guadalajara data
 function checkGDL() {
-  tabletop.init( { key: gdlURL,
-                   callback: returnGDL,
-                   simpleSheet: true } )
-};
-function checkZPN() {
-  tabletop.init( { key: zapURL,
-                   callback: returnZPN,
-                   simpleSheet: true } )
-};
-
-
-function returnGDL(data, tabletop) {
-    sheetdata = data;
-    // jsondata = JSON.stringify(data, null, "\t");
+    tabletop.init( {
+        key: gdlURL,
+        callback: returnGDL,
+        simpleSheet: true
+    });
 }
-function returnZPN(data, tabletop){
+function returnGDL(data) {
+    gdldata = data;
+}
+
+//Get zapopan data
+function checkZPN() {
+    tabletop.init( {
+        key: zapURL,
+        callback: returnZPN,
+        simpleSheet: true
+    });
+}
+function returnZPN(data){
     zapdata = data;
 }
 
@@ -33,37 +37,32 @@ checkGDL();
 checkZPN();
 setInterval(checkGDL, 60000);
 setInterval(checkZPN, 180000);
-///END GOOGLE SHEET
 
+///END TABLETOP CODE
 
-app.use("/src", express.static(__dirname + '/src', { maxAge: oneDay }));
-app.set('view engine', 'pug')
+app.use('/src', express.static(__dirname + '/src', { maxAge: oneDay }));
+app.set('view engine', 'pug');
 
 app.get('/', function (req, res) {
-  res.render('index', {
-      gdldata: sheetdata,
-      zapopandata: zapdata
-  });
+    res.render('index', {
+        gdldata: gdldata,
+        zapopandata: zapdata
+    });
 });
 
 app.get('/zapopan', function (req, res) {
-  res.render('zapopan', {data: zapdata});
+    res.render('zapopan', {data: zapdata});
 });
 
 app.get('/guadalajara', function (req, res) {
-  res.render('guadalajara', {data: sheetdata});
+    res.render('guadalajara', {data: gdldata});
 });
 
 app.get('/acerca', function (req, res) {
-  res.render('acerca');
+    res.render('acerca');
 });
-
-// app.use('/api', router);
-// app.get('/api/gdl', function (req, res) {
-//   res.render('apigdl', {data: jsondata});
-// });
 
 
 app.listen(process.env.PORT || 5000, function () {
-  console.log('Ejecutando #informebajolupa');
+    // console.log('Ejecutando #informebajolupa');
 });
