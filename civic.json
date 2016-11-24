@@ -1,0 +1,16 @@
+{
+        "status": "Beta",
+        "thumbnailUrl": "https://codeandoguadalajara.github.io/images/projects/informebajolupa.png",
+        "bornAt": "Codeando Guadalajara",
+        "geography": "GDL",
+        "politicalEntity":"",
+        "type":"Web App",
+        "needs": [
+                {"need": "Web Designer"},
+                {"need": "Node Dev"}
+        ],
+        "categories": [
+                {"category": "Communidad"},
+                {"category": "Fact check"}
+        ]
+}
