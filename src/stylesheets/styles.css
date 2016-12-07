@@ -2985,8 +2985,17 @@ body img {
   margin-left: 0;
   margin-right: 3%;
 }
-.third:last-child {
+.third:nth-of-type(n) {
+  margin-right: 3%;
+  float: left;
+  clear: none;
+}
+.third:nth-of-type(3n) {
   margin-right: 0;
+  float: right;
+}
+.third:nth-of-type(3n + 1) {
+  clear: both;
 }
 
 .two-thirds {
@@ -2998,6 +3007,10 @@ body img {
 }
 .two-thirds:last-child {
   margin-right: 0;
+}
+
+.padd-20 {
+  padding-bottom: 20px;
 }
 
 .cf {
@@ -3266,7 +3279,7 @@ body img {
 }
 
 .verdadero {
-  color: #16F216;
+  color: #34c740;
 }
 
 .falso {

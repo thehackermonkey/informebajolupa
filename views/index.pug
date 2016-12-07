@@ -1,80 +1,97 @@
 doctype html
 html
-    include includes/head
-    body
-        // CODE
-        - var falso = 0;
-        - var verdadero = 0;
-        - var omisiones = 0;
+	include includes/head
+	body
+		// CODE
+		- var falso = 0;
+		- var verdadero = 0;
+		- var omisiones = 0;
 
-        mixin datadisplay(dataset)
-            for row in dataset
-                if (row.Veredicto === "falso")
-                    - falso = falso + 1
-                if (row.Veredicto === "verdadero")
-                    - verdadero = verdadero + 1
-                if (row.Veredicto === "omisiones")
-                    - omisiones = omisiones + 1
+		mixin datadisplay(dataset)
+			for row in dataset
+				if (row.Veredicto === "falso")
+					- falso = falso + 1
+				if (row.Veredicto === "verdadero")
+					- verdadero = verdadero + 1
+				if (row.Veredicto === "omisiones")
+					- omisiones = omisiones + 1
 
-        .menu
-            ul
-                li: a(href='acerca') Acerca de
-        .container.center
-            img(class="logo" src="../src/img/logo.png")
-            h2 Verificamos los informes de gobierno de los alcaldes
-            .half.select.center
-                a(href="guadalajara")
-                    img(class="escudo"  src="../src/img/guadalajara.png")
-                    h4 En Guadalajara
-                    br
-                    - var gdltotal = 0;
-                    - var gdlfalso = 0;
-                    - var gdlverdadero = 0;
-                    - var gdlomisiones = 0;
-                    - var gdldificil = 0;
-                    for row in gdldata
-                        - gdltotal +=1
-                        - gdldificil = gdltotal - gdlfalso - gdlverdadero - gdlomisiones
+		.menu
+			ul
+				li: a(href='acerca') Acerca de
+		.container.center
+			img(class="logo" src="../src/img/logo.png")
+			h2 Verificamos los informes de gobierno de los alcaldes
+			.third.padd-20.select.center
+				a(href="guadalajara")
+					img(class="escudo"  src="../src/img/guadalajara.png")
+					h4 En Guadalajara
+					br
+					- var gdltotal = 0;
+					- var gdlfalso = 0;
+					- var gdlverdadero = 0;
+					- var gdlomisiones = 0;
+					- var gdldificil = 0;
+					for row in gdldata
+						- gdltotal +=1
+						- gdldificil = gdltotal - gdlfalso - gdlverdadero - gdlomisiones
 
-                        if (row.Veredicto === "falso")
-                            - gdlfalso += 1
-                        if (row.Veredicto === "verdadero")
-                            - gdlverdadero +=1
-                        if (row.Veredicto === "omisiones")
-                            - gdlomisiones += 1
-                    p Afirmaciones falsas : #{gdlfalso}
-                    p Afirmaciones verdaderas: #{gdlverdadero}
-                    p Engañoso o con problemas para verificar: #{gdldificil}
-                    p Omisiones: #{gdlomisiones}
-                    //CODE
-            .half.select.center
-                a(href="zapopan")
-                    img( class="escudo"  src="../src/img/zapopan.png")
-                    h4 En Zapopan
-                    br
-                    - var zpntotal = 0;
-                    - var zpnfalso = 0;
-                    - var zpnverdadero = 0;
-                    - var zpnomisiones = 0;
-                    -var zpndificil = 0;
-                    for row in zapopandata
-                        - zpntotal +=1
-                        - zpndificil = zpntotal - zpnfalso - zpnverdadero - zpnomisiones
+						if (row.Veredicto === "falso")
+							- gdlfalso += 1
+						if (row.Veredicto === "verdadero")
+							- gdlverdadero +=1
+						if (row.Veredicto === "omisiones")
+							- gdlomisiones += 1
+					p Afirmaciones falsas : #{gdlfalso}
+					p Afirmaciones verdaderas: #{gdlverdadero}
+					p Engañoso o con problemas para verificar: #{gdldificil}
+					p Omisiones: #{gdlomisiones}
+					//CODE
+			.third.padd-20.select.center
+				a(href="zapopan")
+					img( class="escudo"  src="../src/img/zapopan.png")
+					h4 En Zapopan
+					br
+					- var zpntotal = 0;
+					- var zpnfalso = 0;
+					- var zpnverdadero = 0;
+					- var zpnomisiones = 0;
+					-var zpndificil = 0;
+					for row in zapopandata
+						- zpntotal +=1
+						- zpndificil = zpntotal - zpnfalso - zpnverdadero - zpnomisiones
 
-                        if (row.Veredicto === "falso")
-                            - zpnfalso += 1
-                        if (row.Veredicto === "verdadero")
-                            - zpnverdadero += 1
-                        if (row.Veredicto === "omisiones")
-                            - zpnomisiones += 1
-                    p Afirmaciones falsas : #{zpnfalso}
-                    p Afirmaciones verdaderas: #{zpnverdadero}
-                    p Engañoso o con problemas para verificar: #{zpndificil}
-                    p Omisiones: #{zpnomisiones}
+						if (row.Veredicto === "falso")
+							- zpnfalso += 1
+						if (row.Veredicto === "verdadero")
+							- zpnverdadero += 1
+						if (row.Veredicto === "omisiones")
+							- zpnomisiones += 1
+					p Afirmaciones falsas : #{zpnfalso}
+					p Afirmaciones verdaderas: #{zpnverdadero}
+					p Engañoso o con problemas para verificar: #{zpndificil}
+					p Omisiones: #{zpnomisiones}
+
+			.third.padd-20.select.center
+				a(href="ecatepec")
+					img( class="escudo"  src="../src/img/ecatepec.jpg")
+					h4 En Ecatepec
+					br
+
+			.third.padd-20.select.center
+				a(href="toluca")
+					img( class="escudo"  src="../src/img/toluca.jpg")
+					h4 En Toluca
+					br
+
+			.third.padd-20.select.center
+				a(href="naucalpan")
+					img( class="escudo"  src="../src/img/naucalpan.jpg")
+					h4 En Naucalpan
+					br
 
 
 
 
-
-        include includes/footer
-        script(src="src/js/analytics.js")
+		include includes/footer
+		script(src="src/js/analytics.js")
