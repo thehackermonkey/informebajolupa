@@ -56,10 +56,18 @@ function checkAllData(sheets, call){
 }// check all data end
 
 //CHECKS FOR NEW INFO EVERY DAY
+<<<<<<< HEAD
+
+checkAllData(spreadsheets, setViews);
+setInterval(function(){
+	checkAllData(spreadsheets, setViews);
+}, halfHour)
+=======
 checkAllData(spreadsheets, setViews);
 setInterval(function(){
 	checkAllData(spreadsheets, setViews)
 }, halfHour);
+>>>>>>> testing
 
 //SET VIEWS
 function setViews(data){

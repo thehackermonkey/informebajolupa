@@ -1,0 +1,13 @@
+// CODE
+- var falso = 0;
+- var verdadero = 0;
+- var omisiones = 0;
+
+mixin datadisplay(dataset)
+	for row in dataset
+		if (row.Veredicto === "falso")
+			- falso = falso + 1
+		if (row.Veredicto === "verdadero")
+			- verdadero = verdadero + 1
+		if (row.Veredicto === "omisiones")
+			- omisiones = omisiones + 1
