@@ -55,7 +55,7 @@ checkSpreadSheets(sheets)
 }// check all data end
 
 //CHECKS FOR NEW INFO EVERY DAY
-setInterval(checkAllData(spreadsheets, setViews), oneDay);
+setInterval(checkAllData(spreadsheets, setViews), 180000);
 
 //SET VIEWS
 function setViews(data){
