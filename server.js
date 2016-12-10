@@ -2,6 +2,7 @@
 var express = require('express'),
 	app = express(),
 	oneDay = 86400000,
+	halfHour = 1800000,
 	tabletop = require('tabletop');
 
 //GOOGLE SPREADSHEETS WHIT THE FACT CHECK OF EACH TOWN
@@ -55,7 +56,11 @@ checkSpreadSheets(sheets)
 }// check all data end
 
 //CHECKS FOR NEW INFO EVERY DAY
+
 checkAllData(spreadsheets, setViews);
+setInterval(function(){
+	checkAllData(spreadsheets, setViews);
+}, halfHour)
 
 //SET VIEWS
 function setViews(data){
