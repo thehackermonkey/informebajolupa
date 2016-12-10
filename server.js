@@ -14,14 +14,15 @@ var spreadsheets = {
 	toluca : '1-JZg1hX8OIe9cDB6hHKdsTClUBMZhyC16iw0QFsg5Cs'
 };
 
+// Check all spreadsheets, get the data and then send it to the view manager
 function checkAllData(sheets, call){
 
-var keys = Object.keys(sheets);
-var x = 0;
-var actualkey = keys[x];
+	var keys = Object.keys(sheets);
+	var x = 0;
+	var actualkey = keys[x];
 
 //Check every single spreadsheet and get the data before rendering de website
-checkSpreadSheets(sheets)
+	checkSpreadSheets(sheets)
 
 	function checkSpreadSheets(sheets) {
 
