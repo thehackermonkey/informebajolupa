@@ -27,25 +27,25 @@ html
 					img(class="escudo"  src="../src/img/guadalajara.png")
 					h4 En Guadalajara
 					br
-					- var gdltotal = 0;
-					- var gdlfalso = 0;
-					- var gdlverdadero = 0;
-					- var gdlomisiones = 0;
-					- var gdldificil = 0;
-					for row in gdldata
-						- gdltotal +=1
-						- gdldificil = gdltotal - gdlfalso - gdlverdadero - gdlomisiones
+					- var guadalajaratotal = 0;
+					- var guadalajarafalso = 0;
+					- var guadalajaraverdadero = 0;
+					- var guadalajaraomisiones = 0;
+					- var guadalajaradificil = 0;
+					for row in guadalajara
+						- guadalajaratotal +=1
+						- guadalajaradificil = guadalajaratotal - guadalajarafalso - guadalajaraverdadero - guadalajaraomisiones
 
 						if (row.Veredicto === "falso")
-							- gdlfalso += 1
+							- guadalajarafalso += 1
 						if (row.Veredicto === "verdadero")
-							- gdlverdadero +=1
+							- guadalajaraverdadero +=1
 						if (row.Veredicto === "omisiones")
-							- gdlomisiones += 1
-					p Afirmaciones falsas : #{gdlfalso}
-					p Afirmaciones verdaderas: #{gdlverdadero}
-					p Engañoso o con problemas para verificar: #{gdldificil}
-					p Omisiones: #{gdlomisiones}
+							- guadalajaraomisiones += 1
+					p Afirmaciones falsas : #{guadalajarafalso}
+					p Afirmaciones verdaderas: #{guadalajaraverdadero}
+					p Engañoso o con problemas para verificar: #{guadalajaradificil}
+					p Omisiones: #{guadalajaraomisiones}
 					//CODE
 			.third.padd-20.select.center
 				a(href="zapopan")
@@ -56,8 +56,8 @@ html
 					- var zpnfalso = 0;
 					- var zpnverdadero = 0;
 					- var zpnomisiones = 0;
-					-var zpndificil = 0;
-					for row in zapopandata
+					- var zpndificil = 0;
+					for row in zapopan
 						- zpntotal +=1
 						- zpndificil = zpntotal - zpnfalso - zpnverdadero - zpnomisiones
 
@@ -77,6 +77,7 @@ html
 					img( class="escudo"  src="../src/img/ecatepec.jpg")
 					h4 En Ecatepec
 					br
+
 
 			.third.padd-20.select.center
 				a(href="toluca")

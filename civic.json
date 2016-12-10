@@ -1,16 +1,23 @@
 {
-        "status": "Beta",
-        "thumbnailUrl": "https://codeandoguadalajara.github.io/images/projects/informebajolupa.png",
-        "bornAt": "Codeando Guadalajara",
-        "geography": "GDL",
-        "politicalEntity":"",
-        "type":"Web App",
-        "needs": [
-                {"need": "Web Designer"},
-                {"need": "Node Dev"}
-        ],
-        "categories": [
-                {"category": "Communidad"},
-                {"category": "Fact check"}
-        ]
+  "name": "Informe Bajo Lupa",
+  "status": "Beta",
+  "contact": {
+    "name": "Hans",
+    "email": "hnsdream@gmail.com",
+    "url": "http://informebajolupa.mx/"
+  },
+  "partners": [],
+  "description": "Bajo la Lupa es un ejercicio ciudadano abierto para verificar la información hablada en los informes de gobierno expedidos por Alcaldes",
+  "license": "MIT",
+  "thumbnail": "https://codeandoguadalajara.github.io/images/projects/informebajolupa.png",
+  "repository": "https://github.com/regenhans/informebajolupa",
+  "geography": [
+    "MEXICO"
+  ],
+  "data": [],
+  "tags": [
+    "fact check"
+  ],
+  "links": [],
+  "id": "https://raw.githubusercontent.com/DCgov/civic.json/master/schemas/schema-v1.json"
 }

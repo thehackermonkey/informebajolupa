@@ -1,129 +1,87 @@
 //express
-var express = require('express');
-var app = express();
-var oneDay = 86400000;
-var here = this;
-///// TABLETOP stuff
+var express = require('express'),
+	app = express(),
+	oneDay = 86400000,
+	tabletop = require('tabletop');
 
+//GOOGLE SPREADSHEETS WHIT THE FACT CHECK OF EACH TOWN
+var spreadsheets = {
+	guadalajara : '19F4xqdTfV1Xse0DF0g3lLFrLFkV43agtCJNhBAu9HgM',
+	zapopan : '1CMTFGw3eTFDtoEaz8QAH4u9y5H3wKaUMt29K5YAoZhY',
+	ecatepec : '1DbdmXzv1udHddfCkSC_FdF9OihNL84no4hpUaiX9F3c',
+	naucalpan : '1pmaUoAOn_j2EuIEZKi10PZ5_m00q5jB6WrX0TkP38n4',
+	toluca : '1-JZg1hX8OIe9cDB6hHKdsTClUBMZhyC16iw0QFsg5Cs'
+};
 
-var tabletop = require('tabletop'),
-	gdlURL = '19F4xqdTfV1Xse0DF0g3lLFrLFkV43agtCJNhBAu9HgM',
-	zapURL = '1CMTFGw3eTFDtoEaz8QAH4u9y5H3wKaUMt29K5YAoZhY',
-	ecatepecURL = '1DbdmXzv1udHddfCkSC_FdF9OihNL84no4hpUaiX9F3c',
-	naucalpanURL = '1pmaUoAOn_j2EuIEZKi10PZ5_m00q5jB6WrX0TkP38n4',
-	tolucaURL = '1-JZg1hX8OIe9cDB6hHKdsTClUBMZhyC16iw0QFsg5Cs',
-	gdldata, zapdata, ecatepecdata, tolucadata, naucalpandata;
+function checkAllData(sheets, call){
 
-//get GDL
-function checkGDL() {
-    tabletop.init( {
-        key: gdlURL,
-        callback: returnGDL,
-        simpleSheet: true
-    });
+var keys = Object.keys(sheets);
+var x = 0;
+var actualkey = keys[x];
+
+//Check every single spreadsheet and get the data before rendering de website
+checkSpreadSheets(sheets)
+
+	function checkSpreadSheets(sheets) {
+
+		console.log('obteniendo datos de: ' + actualkey);
+
+		//executes getdata
+		getData(sheets[actualkey], function(){
+			x++;
+			actualkey = keys[x];
+			if(x < keys.length) {
+				checkSpreadSheets(sheets);
+			}
+			else {
+				call(sheets);
+			}
+		})
+	}
+
+	//GETDATA function (tabletop async request)
+	function getData(municipio, callingback){
+		tabletop.init( {
+			key: municipio,
+			simpleSheet: true,
+			callback: function returnData(data) {
+				console.log('Datos conseguidos con éxito');
+				sheets[actualkey] = data;
+				callingback();
+			 }
+		});
+	}
+	//end getData
+}// check all data end
+
+//CHECKS FOR NEW INFO EVERY DAY
+setInterval(checkAllData(spreadsheets, setViews), oneDay);
+
+//SET VIEWS
+function setViews(data){
+
+	app.use('/src', express.static(__dirname + '/src', { maxAge: oneDay }));
+	app.set('view engine', 'pug');
+
+	app.get('/', function (req, res) {
+		res.render('index', data)
+	});
+
+	for(municipio in data){
+		app.get('/'+municipio, function (req, res) {
+			res.render('results_template', {
+				data: data[municipio],
+				header: municipio
+			});
+		});
+	}
+
+	app.get('/acerca', function (req, res) {
+		res.render('acerca');
+	});
+
+	app.listen(process.env.PORT || 5000, function () {
+		 console.log('#informebajolupa en funcionamiento');
+	});
+
 }
-
-function returnGDL(data) {
-    gdldata = data;
-}
-
-//Get zapopan data
-function checkZPN() {
-    tabletop.init( {
-        key: zapURL,
-        callback: returnZPN,
-        simpleSheet: true
-    });
-}
-function returnZPN(data){
-    zapdata = data;
-}
-
-
-//Get ecatepec data
-function checkEcatepec() {
-    tabletop.init( {
-        key: ecatepecURL,
-        callback: returnEcatepec,
-        simpleSheet: true
-    });
-}
-function returnEcatepec(data){
-    ecatepecdata = data;
-}
-//check naucalpan
-function checkNaucalpan() {
-    tabletop.init( {
-        key: naucalpanURL,
-        callback: returnNaucalpan,
-        simpleSheet: true
-    });
-}
-function returnNaucalpan(data){
-    naucalpandata = data;
-}
-//check toluca
-function checkToluca() {
-    tabletop.init( {
-        key: tolucaURL,
-        callback: returnToluca,
-        simpleSheet: true
-    });
-}
-function returnToluca(data){
-    tolucadata = data;
-}
-
-
-
-
-
-//look for changes on the spreadsheet and keep looking every minute
-checkGDL();
-checkZPN();
-checkEcatepec();
-checkNaucalpan();
-checkToluca();
-setInterval(checkGDL, 60000)
-setInterval(checkGDL, 60000);
-setInterval(checkZPN, 180000);
-///END TABLETOP CODE
-
-app.use('/src', express.static(__dirname + '/src', { maxAge: oneDay }));
-app.set('view engine', 'pug');
-
-app.get('/', function (req, res) {
-    res.render('index', {
-        gdldata: gdldata,
-        zapopandata: zapdata
-    });
-});
-
-app.get('/zapopan', function (req, res) {
-    res.render('zapopan', {data: zapdata});
-});
-
-app.get('/guadalajara', function (req, res) {
-    res.render('guadalajara', {data: gdldata});
-});
-
-app.get('/ecatepec', function (req, res) {
-    res.render('ecatepec', {data: ecatepecdata});
-});
-
-app.get('/toluca', function (req, res) {
-    res.render('toluca', {data: tolucadata});
-});
-
-app.get('/naucalpan', function (req, res) {
-    res.render('naucalpan', {data: naucalpandata});
-});
-
-app.get('/acerca', function (req, res) {
-    res.render('acerca');
-});
-
-
-app.listen(process.env.PORT || 5000, function () {
-    // console.log('Ejecutando #informebajolupa');
-});
