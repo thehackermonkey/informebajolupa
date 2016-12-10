@@ -48,15 +48,14 @@ checkSpreadSheets(sheets)
 				console.log('Datos conseguidos con éxito');
 				sheets[actualkey] = data;
 				callingback();
-			 }
+			}
 		});
 	}
 	//end getData
 }// check all data end
 
 //CHECKS FOR NEW INFO EVERY DAY
-checkAllData(spreadsheets, setViews)
-setInterval(checkAllData(spreadsheets, setViews), 180000);
+checkAllData(spreadsheets, setViews);
 
 //SET VIEWS
 function setViews(data){
