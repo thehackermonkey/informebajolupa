@@ -1,95 +1,42 @@
 doctype html
 html
 	include includes/head
+	include helpers/counters
 	body
-		// CODE
-		- var falso = 0;
-		- var verdadero = 0;
-		- var omisiones = 0;
-
-		mixin datadisplay(dataset)
-			for row in dataset
-				if (row.Veredicto === "falso")
-					- falso = falso + 1
-				if (row.Veredicto === "verdadero")
-					- verdadero = verdadero + 1
-				if (row.Veredicto === "omisiones")
-					- omisiones = omisiones + 1
-
 		.menu
 			ul
 				li: a(href='acerca') Acerca de
 		.container.center
 			img(class="logo" src="../src/img/logo.png")
 			h2 Verificamos los informes de gobierno de los alcaldes
-			.third.padd-20.select.center
-				a(href="guadalajara")
-					img(class="escudo"  src="../src/img/guadalajara.png")
-					h4 En Guadalajara
-					br
-					- var guadalajaratotal = 0;
-					- var guadalajarafalso = 0;
-					- var guadalajaraverdadero = 0;
-					- var guadalajaraomisiones = 0;
-					- var guadalajaradificil = 0;
-					for row in guadalajara
-						- guadalajaratotal +=1
-						- guadalajaradificil = guadalajaratotal - guadalajarafalso - guadalajaraverdadero - guadalajaraomisiones
+			- var municipios = Object.keys(data)
 
-						if (row.Veredicto === "falso")
-							- guadalajarafalso += 1
-						if (row.Veredicto === "verdadero")
-							- guadalajaraverdadero +=1
-						if (row.Veredicto === "omisiones")
-							- guadalajaraomisiones += 1
-					p Afirmaciones falsas : #{guadalajarafalso}
-					p Afirmaciones verdaderas: #{guadalajaraverdadero}
-					p Engañoso o con problemas para verificar: #{guadalajaradificil}
-					p Omisiones: #{guadalajaraomisiones}
-					//CODE
-			.third.padd-20.select.center
-				a(href="zapopan")
-					img( class="escudo"  src="../src/img/zapopan.png")
-					h4 En Zapopan
-					br
-					- var zpntotal = 0;
-					- var zpnfalso = 0;
-					- var zpnverdadero = 0;
-					- var zpnomisiones = 0;
-					- var zpndificil = 0;
-					for row in zapopan
-						- zpntotal +=1
-						- zpndificil = zpntotal - zpnfalso - zpnverdadero - zpnomisiones
-
-						if (row.Veredicto === "falso")
-							- zpnfalso += 1
-						if (row.Veredicto === "verdadero")
-							- zpnverdadero += 1
-						if (row.Veredicto === "omisiones")
-							- zpnomisiones += 1
-					p Afirmaciones falsas : #{zpnfalso}
-					p Afirmaciones verdaderas: #{zpnverdadero}
-					p Engañoso o con problemas para verificar: #{zpndificil}
-					p Omisiones: #{zpnomisiones}
-
-			.third.padd-20.select.center
-				a(href="ecatepec")
-					img( class="escudo"  src="../src/img/ecatepec.jpg")
-					h4 En Ecatepec
-					br
-
-
-			.third.padd-20.select.center
-				a(href="toluca")
-					img( class="escudo"  src="../src/img/toluca.jpg")
-					h4 En Toluca
-					br
-
-			.third.padd-20.select.center
-				a(href="naucalpan")
-					img( class="escudo"  src="../src/img/naucalpan.jpg")
-					h4 En Naucalpan
-					br
+			for municipio in municipios
+				.third.padd-20.select.center
+					a(href=municipio)
+						img(class="escudo" src="../src/img/"+municipio+".png")
+						h4 En #{municipio}
+						br
+						//- - var #{municipio}total = 0;
+						//- - var #{municipio}falso = 0;
+						//- - var #{municipio}verdadero = 0;
+						//- - var #{municipio}omisiones = 0;
+						//- - var #{municipio}dificil = 0;
+						//- for row in #{municipio}
+						//- 	- #{municipio}total +=1
+						//- 	- #{municipio}dificil = #{municipio}total - #{municipio}falso - #{municipio}verdadero - #{municipio}omisiones
+						//-
+						//- 	if (row.Veredicto === "falso")
+						//- 		- #{municipio}falso += 1
+						//- 	if (row.Veredicto === "verdadero")
+						//- 		- #{municipio}verdadero +=1
+						//- 	if (row.Veredicto === "omisiones")
+						//- 		- #{municipio}omisiones += 1
+						//- p Afirmaciones falsas : #{guadalajarafalso}
+						//- p Afirmaciones verdaderas: #{guadalajaraverdadero}
+						//- p Engañoso o con problemas para verificar: #{guadalajaradificil}
+						//- p Omisiones: #{guadalajaraomisiones}
+						//CODE
 
 
 

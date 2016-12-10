@@ -2,6 +2,7 @@
 var express = require('express'),
 	app = express(),
 	oneDay = 86400000,
+	halfHour = 1800000,
 	tabletop = require('tabletop');
 
 //GOOGLE SPREADSHEETS WHIT THE FACT CHECK OF EACH TOWN
@@ -37,7 +38,7 @@ checkSpreadSheets(sheets)
 				call(sheets);
 			}
 		})
-	}
+	}//end check each spreadsheet
 
 	//GETDATA function (tabletop async request)
 	function getData(municipio, callingback){
@@ -50,12 +51,14 @@ checkSpreadSheets(sheets)
 				callingback();
 			 }
 		});
-	}
-	//end getData
+	}//end getData
 }// check all data end
 
 //CHECKS FOR NEW INFO EVERY DAY
-setInterval(checkAllData(spreadsheets, setViews), oneDay);
+checkAllData(spreadsheets, setViews);
+setInterval(function(){
+	checkAllData(spreadsheets, setViews)
+}, halfHour);
 
 //SET VIEWS
 function setViews(data){
@@ -64,20 +67,26 @@ function setViews(data){
 	app.set('view engine', 'pug');
 
 	app.get('/', function (req, res) {
-		res.render('index', data)
+		res.render('index', {
+			data: data,
+			header: "inicio"
+		})
 	});
-
-	for(municipio in data){
-		app.get('/'+municipio, function (req, res) {
-			res.render('results_template', {
-				data: data[municipio],
-				header: municipio
-			});
-		});
-	}
 
 	app.get('/acerca', function (req, res) {
 		res.render('acerca');
+	});
+
+	// dynamic routing
+	app.get('/:municipio', function (req, res) {
+		var municipio = req.params.municipio;
+		if(!data[municipio]){
+			res.send('404: Not found')
+		}
+		res.render('results_template', {
+			data: data[municipio],
+			header: municipio
+		});
 	});
 
 	app.listen(process.env.PORT || 5000, function () {
