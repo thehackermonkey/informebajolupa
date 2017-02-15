@@ -24,15 +24,14 @@
     "node": ">= 4.x"
   },
   "dependencies": {
-    "pug": "^2.0.0-beta6",
-    "express": "^4.13.4",
     "browser-sync": "^2.16.0",
-    "express": "^4.14.0",
+    "express": "^4.14.1",
     "gulp": "^3.9.1",
     "gulp-compass": "^2.1.0",
     "gulp-nodemon": "^2.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
+    "pug": "^2.0.0-beta6",
     "tabletop": "^1.4.3"
   }
 }

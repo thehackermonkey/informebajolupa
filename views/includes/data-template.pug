@@ -15,7 +15,7 @@
 			.fullinfo
 				.third
 					h4 Fuente: #{fuente}
-					h4(class=veredicto) Veredicto:
+					h4(class=veredicto) Vere dicto:
 						if (veredicto === "dificilcomprobar")
 							- veredicto = "Dificil de Comprobar"
 						|  <span>#{veredicto}</span>
@@ -24,20 +24,19 @@
 					p #{analisis}
 			.cf
 
-
-
-	#seguridad
-		h2 <i class="fa fa-lock" aria-hidden="true"></i> Seguridad
-		for row in data
-			if (row.Mesa === "Seguridad")
-				+statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
-
+	
 
 
 	#participacion
 		h2 <i class="fa  fa-hand-paper-o " aria-hidden="true"></i>  Participacion Ciudadana
 		for row in data
 			if (row.Mesa === "Participación Ciudadana")
+				+statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+	#seguridad
+		h2 <i class="fa fa-lock" aria-hidden="true"></i> Seguridad
+		for row in data
+			if (row.Mesa === "Seguridad")
 				+statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
 
 

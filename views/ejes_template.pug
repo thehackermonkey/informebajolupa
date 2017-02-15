@@ -1,0 +1,69 @@
+.container
+	h2 Da click en la frase para ver un análisis detallado
+	ul.guide
+		li <i class="fa fa-circle" aria-hidden="true"></i> En revisión
+		li <i class="fa fa-circle verdadero" aria-hidden="true"></i> Cierto
+		li <i class="fa fa-circle falso" aria-hidden="true"></i> Falso
+		li <i class="fa fa-circle engañoso" aria-hidden="true"></i> Problemas para comprobar o verdad parcial
+
+
+	mixin statement(mesa, veredicto, enunciados, fuente, analisis)
+		.statement(class=mesa)
+			.quote(onclick="toggleinfo(this)")
+				i(class="fa fa-circle" class=veredicto aria-hidden="true")
+				h3.noselect #{enunciados}
+			.fullinfo
+				.third
+					h4 Fuente: #{fuente}
+					h4(class=veredicto) Vere dicto:
+						if (veredicto === "dificilcomprobar")
+							- veredicto = "Dificil de Comprobar"
+						|  <span>#{veredicto}</span>
+				.two-thirds
+					h4 Análisis
+					p #{analisis}
+			.cf
+
+	#gobseg
+		h2 <i class="fa fa-eye" aria-hidden="true"></i> Gobernabilidad y Seguridad
+		for row in data
+			if (row.Mesa === "Gobernabilidad y Seguridad")
+				+statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+	#finanzasyobras
+		h2 <i class="fa fa-train" aria-hidden="true"></i> Finanzas y Obra Pública
+		for row in data
+			if (row.Mesa === "Finanzas y Obra Pública")
+				+statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+	#desarrolloeconomico
+		h2 <i class="fa  fa-money " aria-hidden="true"></i>  Desarrollo económico y medio ambiente
+		for row in data
+			if (row.Mesa === "Desarrollo económico y medio ambiente")
+				+statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+	#desarrollohumano
+		h2 <i class="fa  fa-users " aria-hidden="true"></i>  Desarrollo Humano
+		for row in data
+			if (row.Mesa === "Desarrollo humano")
+				+statement(row.Mesa, row.Veredicto, row.Enunciados, row.Fuente, row.Analisis)
+
+
+script.
+	function downloadJSAtOnload() {
+	var element = document.createElement("script");
+	element.src = "src/bower_components/jquery/dist/jquery.min.js";
+	document.body.appendChild(element);
+	}
+	if (window.addEventListener)
+		window.addEventListener("load", downloadJSAtOnload, false);
+	else if (window.attachEvent)
+		window.attachEvent("onload", downloadJSAtOnload);
+	else window.onload = downloadJSAtOnload;
+
+	function toggleinfo(element){
+		$(element).siblings(".fullinfo").toggle();
+	}
