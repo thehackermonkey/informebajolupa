@@ -7,6 +7,7 @@ var express = require('express'),
 
 //GOOGLE SPREADSHEETS WHIT THE FACT CHECK OF EACH TOWN
 var spreadsheets = {
+	jalisco: '1ZezQRrxGSrSOSfeFuyyI-8wEga85BuKM8uPm2cnd1X0',
 	guadalajara : '19F4xqdTfV1Xse0DF0g3lLFrLFkV43agtCJNhBAu9HgM',
 	zapopan : '1CMTFGw3eTFDtoEaz8QAH4u9y5H3wKaUMt29K5YAoZhY',
 	ecatepec : '1DbdmXzv1udHddfCkSC_FdF9OihNL84no4hpUaiX9F3c',
@@ -45,7 +46,7 @@ checkSpreadSheets(sheets)
 		tabletop.init( {
 			key: municipio,
 			simpleSheet: true,
-			callback: function returnData(data) {
+			callback: data => {
 				console.log('Datos conseguidos con éxito');
 				sheets[actualkey] = data;
 				callingback();
@@ -56,7 +57,7 @@ checkSpreadSheets(sheets)
 
 //CHECKS FOR NEW INFO EVERY DAY
 checkAllData(spreadsheets, setViews);
-setInterval(function(){
+setInterval(() => {
 	checkAllData(spreadsheets, setViews)
 }, halfHour);
 
@@ -83,10 +84,27 @@ function setViews(data){
 		if(!data[municipio]){
 			res.send('404: Not found')
 		}
-		res.render('results_template', {
+		if(municipio == 'jalisco'){
+			res.render('ejes_header', {
+			data: data[municipio],
+			header: municipio
+			})
+		}
+		else{
+			res.render('results_template', {
 			data: data[municipio],
 			header: municipio
 		});
+		}
+		
+	});
+
+	app.get('/api/:municipio', function (req, res) {
+		var municipio = req.params.municipio;
+		if(!data[municipio]){
+			res.send('404: Not found')
+		}
+		res.send(data[municipio]);
 	});
 
 	app.listen(process.env.PORT || 5000, function () {

@@ -63,8 +63,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.6.3");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.6.3") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular") format("svg");
+  src: url("src/fonts/fontawesome-webfont.eot?v=4.6.3");
+  src: url("src/fonts/fontawesome-webfont.eot?#iefix&v=4.6.3") format("embedded-opentype"), url("src/fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"), url("src/fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"), url("src/fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"), url("src/fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -3234,11 +3234,11 @@ body img {
   padding: 25px;
 }
 
-#infraestructura, #participacion, #seguridad, #derechoshumanos, #ambiente, #economia, #otro, #transparencia, #omisiones {
+#infraestructura, #participacion, #seguridad, #desarrollohumano, #desarrolloeconomico, #finanzasyobras, #derechoshumanos, #otro, #ambiente, #economia, #gobseg, #transparencia, #omisiones {
   border-top: 4px solid gray;
   padding: 25px;
 }
-#infraestructura h2, #participacion h2, #seguridad h2, #derechoshumanos h2, #ambiente h2, #economia h2, #otro h2, #transparencia h2, #omisiones h2 {
+#infraestructura h2, #participacion h2, #seguridad h2, #desarrollohumano h2, #desarrolloeconomico h2, #finanzasyobras h2, #derechoshumanos h2, #otro h2, #ambiente h2, #economia h2, #gobseg h2, #transparencia h2, #omisiones h2 {
   color: #125E73;
 }
 
