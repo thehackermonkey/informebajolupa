@@ -20,7 +20,15 @@ Necesitas tener instalado:
 
 
 Para ejecutar el proyecto de manera local ejecuta:
-
+```
+npm install
+```
+Para ejecutar en modo desarrollo
 ```
 gulp
 ```
+Para ejecutar el servidor
+```
+npm start
+```
+
