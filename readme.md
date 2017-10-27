@@ -12,7 +12,7 @@ Hasta ahora, los ciudadanos de Informe Bajo Lupa han hecho estas revisiones:
 - Gobiernos de Ecatepec, Naucalpan y Toluca, 2016
 - Gobiernos de Guadalajara y Zapopan, 2016
 
-La mejor fortaleza de Informe Bajo Lupa es la participación de ciudadanos y organizaciones. Si quisieras implementar Informe Bajo Lupa, contacta a @hans y @ponentesincausa quienes te orientarán en el proceso.
+La mejor fortaleza de Informe Bajo Lupa es la participación de ciudadanos y organizaciones. Si quisieras implementar Informe Bajo Lupa, contacta a [@regenhans](http://github.com/regenhans) el desarrollador de este proyecto o a [@ponentesincausa](http://github.com/ponentesincausa) quienes te orientarán en el proceso.
 
 ¿Te gustaría contribuir a que siga vivo este proyecto? recibimos [donaciones seguras a través de Open Colective](https://opencollective.com/informebajolupa). Lo recaudado se usa para pagar los hostings y dominios.
 
