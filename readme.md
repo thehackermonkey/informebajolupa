@@ -1,6 +1,8 @@
 
 <div style="text-align:center"><img width="150" src="src/img/logo.png" /></div>
 
+[![OpenCollective](https://opencollective.com/informebajolupa/backers/badge.svg)](#backers) [![OpenCollective](https://opencollective.com/informebajolupa/sponsors/badge.svg)](#sponsors)
+
 # Informe bajo lupa
 
 Informe Bajo Lupa es un pequeño proyecto que ayuda a grupos de ciudadanos a revisar los informes de gobierno de sus alcaldes y gobernadores. Informe Bajo Lupa parte de la premisa que los informes de gobierno locales se fiscalizan muy poco, y que reunir a ciudadanos a trabajar en equipo en torno a una tarea cívica es un buen ejercicio en sí mismo.
